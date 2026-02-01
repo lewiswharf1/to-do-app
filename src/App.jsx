@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import ToDo from './components/ToDo'
+import InputForm from './components/InputForm'
 
 function App() {
+
+  const [toDoList, setToDoList] = useState([]);
+  const [toDo, setToDo] = useState({
+    name: "",
+    date: "",
+    time: ""
+  })
 
   return (
     <main>
       <h1>To dos:</h1>
 
-      <form className='add-to-list'>
-        <h2>New item:</h2>
-        <input />
-        <input />
-        <input />
-        <button>Submit</button>
-      </form>
+      <InputForm setToDo={setToDo} setToDoList={setToDoList}/>
   
       <div className='to-do-wrapper'>
 

@@ -16,6 +16,10 @@
         @apply flex flex-col w-screen items-center;
     }
 
+    .no-items-message {
+        @apply mt-10 text-xl font-medium
+    }
+
     .add-to-list {
         @apply flex flex-col bg-gray-200 w-1/3 p-4 rounded-lg mt-10 gap-2;
 
@@ -32,7 +36,7 @@
         }
 
         input {
-            @apply border border-gray-600 w-5/6 bg-white;
+            @apply border border-gray-600 w-5/6 bg-white px-1;
         }
 
         button {

@@ -11,19 +11,43 @@ function App() {
     time: ""
   })
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setToDoList((prev) => [...prev, toDo]);
+    setToDo({
+      name: "",
+      date: "",
+      time: ""
+    })
+  }
+
   return (
     <main>
       <h1>To dos:</h1>
 
-      <InputForm setToDo={setToDo} setToDoList={setToDoList}/>
+      <InputForm 
+        setToDo={setToDo} 
+        setToDoList={setToDoList} 
+        toDo={toDo}
+        handleSubmit={handleSubmit}/>
   
       <div className='to-do-wrapper'>
 
-        <ToDo
-          name="Clean room"
-          date="today"
-          time="4.50pm"
-        />
+        {toDoList.length <= 0 
+        ? 
+        <p className='no-items-message'>Add items to your list...</p> 
+        :
+        toDoList.map(task => 
+          <ToDo
+          key={task.name} 
+          name={task.name}
+          date={task.date}
+          time={task.time}
+          />
+        )
+
+      }
 
       </div>
 

@@ -3,7 +3,7 @@ import Calendar from './Calendar'
 import Clock from './Clock'
 import Dropdown from './Dropdown'
 
-const ToDo = ({ name, date, time }) => {
+const ToDo = ({ name, date, time, handleRemove }) => {
 
   const [optionsShowing, setOptionsShowing] = useState(false);
   const optionsRef = useRef(null);
@@ -26,7 +26,7 @@ const ToDo = ({ name, date, time }) => {
   }, [optionsShowing]);
 
   return (
-    <div className='to-do'>
+    <div className='to-do' ref={optionsRef}>
         <h2>{name}</h2>
         <div className='date-time-info'>
           <div className='date-info'>
@@ -41,7 +41,7 @@ const ToDo = ({ name, date, time }) => {
         <Dropdown displayOptions={() => setOptionsShowing(true)}/>
 
         <div className={`options ${optionsShowing ? "" : "invisible"}`}>
-          <button>Remove item</button>
+          <button onClick={() => handleRemove(name, date)}>Remove item</button>
           <hr/>
           <button>Mark as complete</button>
         </div>

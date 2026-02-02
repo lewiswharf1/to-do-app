@@ -13,8 +13,13 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Clicked");
 
     if (!toDo.name || !toDo.date || !toDo.time) {
+      console.log("here")
+      console.log(toDo.name)
+      console.log(toDo.date)
+      console.log(toDo.time)
       return;
     }
 
@@ -24,6 +29,15 @@ function App() {
       date: "",
       time: ""
     })
+  }
+
+  const handleRemove = (name, date) => {
+    setToDoList(
+      toDoList.filter(task => 
+        task.name !== name 
+        && task.date !== date
+      )
+    )
   }
 
   
@@ -50,6 +64,7 @@ function App() {
           name={task.name}
           date={task.date}
           time={task.time}
+          handleRemove={handleRemove}
           />
         )
 

@@ -11,7 +11,7 @@ const InputForm = ({ setToDo, setToDoList, toDo, handleSubmit }) => {
             type='text' 
             id='name' 
             value={toDo.name} 
-            onChange={(e) => setToDo({...toDo, name: e.target.value})}
+            onChange={(e) => setToDo(prev => ({...prev, name: e.target.value}))}
             />
         </div>
         <div className='input-label'>
@@ -20,7 +20,7 @@ const InputForm = ({ setToDo, setToDoList, toDo, handleSubmit }) => {
             type='date' 
             id='date' 
             value={toDo.date}
-            onChange={(e) => setToDo({...toDo, date: e.target.value})}
+            onChange={(e) => setToDo(prev => ({...prev, date: e.target.value}))}
             />
         </div>
         <div className='input-label'>
@@ -29,7 +29,7 @@ const InputForm = ({ setToDo, setToDoList, toDo, handleSubmit }) => {
             type='time' 
             id='time' 
             value={toDo.time}
-            onChange={(e) => setToDo({...toDo, time: e.target.value})}
+            onChange={(e) => setToDo(prev => ({...prev, time: e.target.value}))}
             />
         </div>
 

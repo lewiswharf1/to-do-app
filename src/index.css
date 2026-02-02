@@ -66,7 +66,15 @@
         }
 
         .dropdown {
-            @apply absolute right-7 top-9 bg-white rounded-2xl w-8 h-8 p-1;
+            @apply absolute right-7 top-9 bg-white rounded-2xl w-8 h-8 p-1 cursor-pointer;
+        }
+
+        .options {
+            @apply flex flex-col absolute top-17 left-110 z-100 bg-white w-50 text-lg font-medium rounded-lg px-3 border border-gray-600;
+
+            button {
+                @apply hover:bg-gray-200 cursor-pointer;
+            }
         }
 
     }

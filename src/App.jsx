@@ -14,6 +14,10 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    if (!toDo.name || !toDo.date || !toDo.time) {
+      return;
+    }
+
     setToDoList((prev) => [...prev, toDo]);
     setToDo({
       name: "",
@@ -21,6 +25,8 @@ function App() {
       time: ""
     })
   }
+
+  
 
   return (
     <main>

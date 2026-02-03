@@ -51,6 +51,16 @@ function App() {
     setOptionsShowing(false);
   }
 
+  const handleEdit = (name, date, setOptionsShowing) => {
+    let newName = window.prompt("Please enter the new name");
+    console.log(newName);
+    setToDoList(prev => prev.map(task => 
+      task.name === name && task.date === date
+      ? {...task, name: newName}
+      : task
+    ))
+  }
+
   
 
   return (
@@ -82,6 +92,7 @@ function App() {
               time={task.time}
               handleRemove={handleRemove}
               handleComplete={handleComplete}
+              handleEdit={handleEdit}
             />)         
           }}
           )

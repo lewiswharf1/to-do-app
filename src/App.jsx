@@ -8,7 +8,8 @@ function App() {
   const [toDo, setToDo] = useState({
     name: "",
     date: "",
-    time: ""
+    time: "",
+    completed: false
   })
 
   const handleSubmit = (e) => {
@@ -27,7 +28,8 @@ function App() {
     setToDo({
       name: "",
       date: "",
-      time: ""
+      time: "",
+      completed: false
     })
   }
 
@@ -38,6 +40,15 @@ function App() {
         && task.date !== date
       )
     )
+  }
+
+  const handleComplete = (name, date, setOptionsShowing) => {
+    setToDoList(prev => prev.map(task => 
+      task.name === name && task.date === date
+      ? {...task, completed: true}
+      : task
+    ))
+    setOptionsShowing(false);
   }
 
   
@@ -54,21 +65,48 @@ function App() {
   
       <div className='to-do-wrapper'>
 
+        <h2>Oustanding tasks: </h2>
+
+
         {toDoList.length <= 0 
         ? 
         <p className='no-items-message'>Add items to your list...</p> 
         :
         toDoList.map(task => 
-          <ToDo
-          key={task.name} 
-          name={task.name}
-          date={task.date}
-          time={task.time}
-          handleRemove={handleRemove}
-          />
-        )
+          {if (task.completed === false) {
+            return (
+              <ToDo
+              key={task.name} 
+              name={task.name}
+              date={task.date}
+              time={task.time}
+              handleRemove={handleRemove}
+              handleComplete={handleComplete}
+            />)         
+          }}
+          )
+        }
 
-      }
+        <h2>Completed Tasks: </h2>
+
+        {toDoList.length <= 0 
+        ? 
+        <p className='no-items-message'>No completed items...</p> 
+        :
+        toDoList.map(task => 
+          {if (task.completed === true) {
+            return (
+              <ToDo
+              key={task.name} 
+              name={task.name}
+              date={task.date}
+              time={task.time}
+              handleRemove={handleRemove}
+              handleComplete={handleComplete}
+            />)         
+          }}
+          )
+        }
 
       </div>
 

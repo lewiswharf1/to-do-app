@@ -3,7 +3,7 @@ import Calendar from './Calendar'
 import Clock from './Clock'
 import Dropdown from './Dropdown'
 
-const ToDo = ({ name, date, time, handleRemove }) => {
+const ToDo = ({ name, date, time, handleRemove, handleComplete }) => {
 
   const [optionsShowing, setOptionsShowing] = useState(false);
   const optionsRef = useRef(null);
@@ -43,7 +43,7 @@ const ToDo = ({ name, date, time, handleRemove }) => {
         <div className={`options ${optionsShowing ? "" : "invisible"}`}>
           <button onClick={() => handleRemove(name, date)}>Remove item</button>
           <hr/>
-          <button>Mark as complete</button>
+          <button onClick={() => handleComplete(name, date, setOptionsShowing)}>Mark as complete</button>
         </div>
     </div>
   )

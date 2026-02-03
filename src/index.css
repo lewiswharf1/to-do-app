@@ -17,8 +17,14 @@
     }
 
     .no-items-message {
-        @apply mt-10 text-xl font-medium
+        @apply mt-10 text-base
     }
+
+    .task-message {
+        @apply mt-10 font-bold text-xl self-start ml-[33%]
+    }
+
+
 
     .add-to-list {
         @apply flex flex-col bg-gray-200 w-1/3 p-4 rounded-lg mt-10 gap-2;

@@ -65,10 +65,10 @@ function App() {
   
       <div className='to-do-wrapper'>
 
-        <h2>Oustanding tasks: </h2>
+        <h2 className='task-message'>Oustanding tasks: </h2>
 
 
-        {toDoList.length <= 0 
+        {toDoList.filter(task => task.completed === false) <= 0 
         ? 
         <p className='no-items-message'>Add items to your list...</p> 
         :
@@ -87,9 +87,9 @@ function App() {
           )
         }
 
-        <h2>Completed Tasks: </h2>
+        <h2 className='task-message'>Completed Tasks: </h2>
 
-        {toDoList.length <= 0 
+        {toDoList.filter(task => task.completed === true).length <= 0 
         ? 
         <p className='no-items-message'>No completed items...</p> 
         :

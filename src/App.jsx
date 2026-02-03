@@ -53,7 +53,7 @@ function App() {
 
   const handleEdit = (name, date, setOptionsShowing) => {
     let newName = window.prompt("Please enter the new name");
-    console.log(newName);
+    if (newName.trim() === "") return;
     setToDoList(prev => prev.map(task => 
       task.name === name && task.date === date
       ? {...task, name: newName}

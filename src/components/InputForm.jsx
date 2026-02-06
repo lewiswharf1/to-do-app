@@ -1,6 +1,6 @@
 import React from 'react'
 
-const InputForm = ({ setToDo, setToDoList, toDo, handleSubmit }) => {
+const InputForm = ({ setToDo, toDo, handleSubmit }) => {
 
   return (
     <form className='add-to-list'>

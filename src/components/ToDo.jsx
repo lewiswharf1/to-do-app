@@ -44,7 +44,7 @@ const ToDo = ({ name, date, time, handleRemove, handleComplete, handleEdit }) =>
           <hr/>
           <button onClick={() => handleComplete(name, date, setOptionsShowing)}>Mark as complete</button>
           <hr />
-          <button onClick={() => handleEdit(name, date, setOptionsShowing)}>Edit</button>
+          <button onClick={() => handleEdit(name, date)}>Edit</button>
         </div>
     </div>
   )

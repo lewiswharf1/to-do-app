@@ -14,13 +14,8 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Clicked");
 
     if (!toDo.name || !toDo.date || !toDo.time) {
-      console.log("here")
-      console.log(toDo.name)
-      console.log(toDo.date)
-      console.log(toDo.time)
       return;
     }
 
@@ -78,7 +73,7 @@ function App() {
         <h2 className='task-message'>Oustanding tasks: </h2>
 
 
-        {toDoList.filter(task => task.completed === false) <= 0 
+        {toDoList.filter(task => task.completed === false).length <= 0 
         ? 
         <p className='no-items-message'>Add items to your list...</p> 
         :

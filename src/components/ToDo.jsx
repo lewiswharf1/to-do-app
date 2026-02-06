@@ -11,7 +11,6 @@ const ToDo = ({ name, date, time, handleRemove, handleComplete, handleEdit }) =>
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (optionsRef.current && !optionsRef.current.contains(event.target)) {
-        console.log("you clicked outsied");
         setOptionsShowing(false);
       }
     }

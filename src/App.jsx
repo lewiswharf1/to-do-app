@@ -59,17 +59,13 @@ function App() {
   return (
     <main>
       <h1>To dos:</h1>
-
       <InputForm 
         setToDo={setToDo} 
         toDo={toDo}
-        handleSubmit={handleSubmit}/>
-  
+        handleSubmit={handleSubmit}
+      />
       <div className='to-do-wrapper'>
-
         <h2 className='task-message'>Oustanding tasks: </h2>
-
-
         {toDoList.filter(task => task.completed === false).length <= 0 
         ? 
         <p className='no-items-message'>Add items to your list...</p> 
@@ -89,9 +85,7 @@ function App() {
           }}
           )
         }
-
         <h2 className='task-message'>Completed Tasks: </h2>
-
         {toDoList.filter(task => task.completed === true).length <= 0 
         ? 
         <p className='no-items-message'>No completed items...</p> 
@@ -110,9 +104,7 @@ function App() {
           }}
           )
         }
-
       </div>
-
     </main>
   )
 }
